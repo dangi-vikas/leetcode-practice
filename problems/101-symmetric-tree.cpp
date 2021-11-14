@@ -13,7 +13,7 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        return isSymmetricRec(root, root);
+        return isSymmetricRec(root, root); 
     }
     
     bool isSymmetricRec(TreeNode* root1, TreeNode* root2){
