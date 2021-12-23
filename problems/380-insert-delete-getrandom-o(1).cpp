@@ -1,31 +1,45 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-
-class Solution {
-    vector<int> nums;
+class RandomizedSet {
+    unordered_map<int, int> m;
+    vector<int> v;
+    int size = 0;
+    
 public:
-    Solution(ListNode* head) {
-        while(head){
-            nums.push_back(head->val);
-            head = head->next;
-        }
+    RandomizedSet() {
+        
+    }
+    
+    bool insert(int val) {
+        if (m.count(val) != 0) return false;
+        
+        m[val] = size;
+        v.push_back(val);
+        size++;
+        
+        return true;   
+    }
+    
+    bool remove(int val) {
+        if (m.count(val) == 0) return false;
+        
+        int idx = m[val];
+        v[idx] = v[size - 1];
+        v.pop_back();
+        m[v[idx]] = idx;
+        m.erase(val);
+        size--;
+        
+        return true;
     }
     
     int getRandom() {
-        return nums[rand() % nums.size()];
+        return v[rand() % size];
     }
 };
 
 /**
- * Your Solution object will be instantiated and called as such:
- * Solution* obj = new Solution(head);
- * int param_1 = obj->getRandom();
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet* obj = new RandomizedSet();
+ * bool param_1 = obj->insert(val);
+ * bool param_2 = obj->remove(val);
+ * int param_3 = obj->getRandom();
  */
