@@ -4,10 +4,7 @@ class Solution {
         Node *links[2];
         
     public:
-//         Node(){
-//             links[0] = NULL;
-//             links[1] =  NULL;
-//         }
+
         
         bool containsKey(int bit){
             return (links[bit] != NULL);
