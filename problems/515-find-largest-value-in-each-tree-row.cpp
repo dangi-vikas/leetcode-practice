@@ -20,7 +20,7 @@ public:
         
         q.push(root);
         
-        while(!q.empty()) {\
+        while(!q.empty()) {
             int maxValue = INT_MIN;
             int size = q.size();
             
