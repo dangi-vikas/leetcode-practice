@@ -20,7 +20,7 @@ public:
             if(nums[val]%val==0 || val%nums[val]==0)
                 countArrangementRec(nums, val-1);
             
-            // swap(nums[i], nums[val]);
+            swap(nums[i], nums[val]);
         }
     } 
 };
