@@ -2,7 +2,7 @@ class Solution {
 public:
     int uniqueMorseRepresentations(vector<string>& words) {
         vector<string> morse = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };
-        set<string> transformations;
+        unordered_set<string> transformations;
         
         for(int i=0; i<words.size(); i++){
             string temp = "";
