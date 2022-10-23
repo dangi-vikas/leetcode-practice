@@ -1,19 +1,18 @@
 class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
-        int n = nums.size();
-        int dupl, numSum = 0;
+        vector<int> ans(2);
         
-        for(int num : nums) {
-            numSum += abs(num);
+        for(int i=0; i<nums.size(); i++) {
+            int val = abs(nums[i]);
+            ans[1]  ^= (i+1) ^ val;
             
-            if(nums[abs(num) - 1] < 0)
-                dupl = abs(num);
-            else nums[abs(num) - 1] *= -1;
-        }
+            if(nums[val-1] < 0) ans[0] = val;
+            else nums[val-1] = -nums[val-1];
+        } 
         
-        int nSum = n * (n+1) / 2;
+        ans[1] ^= ans[0];
         
-        return {dupl, dupl + (nSum - numSum)};
+        return ans;
     }
 };
