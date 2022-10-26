@@ -8,7 +8,7 @@ public:
             remainder += nums[i];
             if(k) remainder %= k;
             
-            if(remMap.count(remainder)){
+            if(remMap.find(remainder) != remMap.end()){
                 if(i - remMap[remainder] > 1) return true;
             }
             
