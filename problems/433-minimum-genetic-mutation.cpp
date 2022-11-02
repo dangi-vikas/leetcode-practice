@@ -1,40 +1,41 @@
 class Solution {
 public:
     int minMutation(string start, string end, vector<string>& bank) {
-        int count = 0;
+        int ans = 0;
         queue<string> q;
         
         q.push(start);
         
-        while(!q.empty()){
+        while(!q.empty()) {
             int size = q.size();
             
-            for(int i=0; i<size; i++){
-                string temp = q.front(); q.pop();
-                
-                if(temp == end) return count;
-                
-                for(auto it=bank.begin(); it!=bank.end(); it++){
-                    if(diff(temp, *it) == 1){
+            for(int i=0; i<size; i++) {
+                string temp = q.front();
+                q.pop();
+
+                if(temp == end) return ans;
+
+                for(auto it=bank.begin(); it!=bank.end(); it++) {
+                    if(isUnitDiff(temp, *it)) {
                         q.push(*it);
                         bank.erase(it);
                         it--;
-                    }
+                    } 
                 }
             }
             
-            count++;
+            ans++;
         }
-        
+   
         return -1;
     }
     
-    int diff(string s1, string s2){
-        int count = 0; 
+    bool isUnitDiff(string& s1, string& s2) {
+        int diffCount = 0;
         
-        for(int i=0; i<s1.length(); i++)
-            if(s1[i] != s2[i]) count++; 
+        for(int i=0; i<s1.size(); i++) 
+            if(s1[i] != s2[i]) diffCount++;
         
-        return count;
+        return diffCount == 1;
     }
 };
