@@ -58,7 +58,7 @@ public:
             return;
         
         curr = curr->child[index];
-        
+         
         if(curr->wordEnd > 0) {
             ans.push_back(curr->word);
             curr->wordEnd -= 1;
