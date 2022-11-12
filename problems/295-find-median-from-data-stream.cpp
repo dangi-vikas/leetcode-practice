@@ -8,30 +8,29 @@ public:
     }
     
     void addNum(int num) {
-        int lSize = maxHeap.size();
-        int rSize = minHeap.size();
+        int mxSize = maxHeap.size(), mnSize = minHeap.size();
         
-        if(lSize == 0) maxHeap.push(num);
+        if(mxSize == 0) maxHeap.push(num);
         
-        else if(lSize == rSize) {
+        else if(mxSize == mnSize) {
             if(num < minHeap.top()) maxHeap.push(num);
             
             else {
-                int temp = minHeap.top();
-                minHeap.pop();
                 minHeap.push(num);
-                maxHeap.push(temp);
-            }
+                int top = minHeap.top();
+                minHeap.pop();
+                maxHeap.push(top);
+            }  
         }
         
         else {
-           if (minHeap.size() == 0) {
+            if(minHeap.size() == 0) {
                 if(num > maxHeap.top()) minHeap.push(num);
                 else {
-                    int temp = maxHeap.top();
-                    maxHeap.pop();
                     maxHeap.push(num);
-                    minHeap.push(temp);
+                    int top = maxHeap.top();
+                    maxHeap.pop();
+                    minHeap.push(top);
                 }
             }
             
@@ -39,10 +38,10 @@ public:
             
             else {
                 if(num < maxHeap.top()) {
-                    int temp = maxHeap.top();
-                    maxHeap.pop();
                     maxHeap.push(num);
-                    minHeap.push(temp);
+                    int top = maxHeap.top();
+                    maxHeap.pop();
+                    minHeap.push(top);
                 }
                 
                 else minHeap.push(num);
@@ -51,11 +50,10 @@ public:
     }
     
     double findMedian() {
-        int lSize = maxHeap.size();
-        int rSize = minHeap.size();
+        int mxSize = maxHeap.size(), mnSize = minHeap.size();
         
-        if(lSize > rSize) return (double) (maxHeap.top());
-        else return (((double) maxHeap.top() + (double) minHeap.top()) / 2);
+        if(mxSize == mnSize) return ((double) (maxHeap.top() + minHeap.top())) / 2;
+        return (double) maxHeap.top();
     }
 };
 
