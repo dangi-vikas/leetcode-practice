@@ -26,3 +26,31 @@ public:
         return ans;
     }
 };  
+
+//space optimised solution
+
+class Solution {
+public:
+    string reverseWords(string s) {
+        int i = 0, n = s.length();
+        string ans = "";
+        
+        while(i<n) {
+            while(s[i] == ' ') i++;
+            
+            if(i >= n) break;
+            
+            int j = i+1;
+            
+            while(s[j] != ' ' && j < n) j++;
+            
+            string word = s.substr(i, (j-i));
+            if(ans.empty()) ans += word;
+            else ans = word + " " + ans;
+            
+            i = j;
+        }
+        
+        return ans;
+    }
+};
