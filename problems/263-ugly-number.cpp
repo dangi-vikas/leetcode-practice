@@ -1,19 +1,19 @@
 class Solution {
 public:
     bool isUgly(int n) {
-        if(n==0) return false;
+        if(n <= 0) return false;
         
-        int res=n;
+        int num = n;
         
-        while(true){
-            if(res%2==0) res=res/2;
-            else if(res%3==0) res=res/3;
-            else if(res%5==0) res=res/5;
+        while(true) {
+            if(num % 2 == 0) num /= 2;
+            else if(num % 3 == 0) num /= 3;
+            else if(num % 5 == 0) num /= 5;
             
-            else if (res==1) return true;
+            else if(num == 1) return true;
             else return false;
         }
         
-        return true;
+        return false;
     }
 };
