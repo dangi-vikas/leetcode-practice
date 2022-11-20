@@ -2,22 +2,22 @@ class Solution {
 public:
     int calculate(string s) {
         int len = s.length();
-        int sign = 1;
-        long long ans = 0, curr = 0;
+        int ans = 0;
+        int sign = 1, n = 0;
         stack<int> st;
         
         for(int i=0; i<len; i++) {
             if(isdigit(s[i])) {
-                curr = s[i] - '0';
+                n = s[i] - '0';
                 
                 while(i+1 < len && isdigit(s[i+1])) {
-                    curr = curr * 10 + s[i+1] - '0';
+                    n = n * 10 + s[i+1] - '0';
                     i++;
                 }
                 
-                curr = curr * sign;
-                ans += curr;
-                curr = 0;
+                n *= sign;
+                ans += n;
+                n = 0;
             }
             
             else if(s[i] == '+') sign = 1;
@@ -31,15 +31,13 @@ public:
             }
             
             else if(s[i] == ')') {
-                int prevSign = st.top();
+                int signBefore = st.top();
                 st.pop();
-                
-                ans *= prevSign;
-                
                 int prevAns = st.top();
                 st.pop();
                 
-                ans += prevAns;
+                ans *= signBefore;
+                ans += prevAns; 
             }
         }
         
