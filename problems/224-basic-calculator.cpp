@@ -2,8 +2,8 @@ class Solution {
 public:
     int calculate(string s) {
         int len = s.length();
-        int ans = 0;
-        int sign = 1, n = 0;
+        long long ans = 0, n = 0;
+        int sign = 1;
         stack<int> st;
         
         for(int i=0; i<len; i++) {
