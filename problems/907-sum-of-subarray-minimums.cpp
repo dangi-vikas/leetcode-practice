@@ -1,9 +1,10 @@
 class Solution {
-    int mod = 1e9+7;
+    int mod = 1e9 + 7;
+    
 public:
     int sumSubarrayMins(vector<int>& arr) {
         int n = arr.size();
-        vector<int> previousLess(n, n), nextLess(n, -1);
+        vector<int> leftMin(n, n), rightMin(n, -1);
         stack<int> st;
         long long sum = 0;
         
@@ -11,28 +12,26 @@ public:
             while(!st.empty() && arr[st.top()] > arr[i])
                 st.pop();
             
-            if(!st.empty()) 
-                previousLess[i] = st.top();
+            if(!st.empty()) leftMin[i] = st.top();
             
             st.push(i);
         }
-
+        
         st = {};
-
+        
         for(int i=0; i<n; i++) {
             while(!st.empty() && arr[st.top()] >= arr[i])
                 st.pop();
             
-            if(!st.empty()) 
-                nextLess[i] = st.top();
+            if(!st.empty()) rightMin[i] = st.top();
             
             st.push(i);
             
-            sum += (long long) (previousLess[i] - i) * (i - nextLess[i]) * (long long) arr[i];
+            int leftLen = i - leftMin[i];
+            int rightLen = rightMin[i] - i;
             
-            sum %= mod;
+            sum = (sum + ((long) arr[i] * leftLen * rightLen) % mod) % mod;
         }
-            
         
         return sum;
     }
