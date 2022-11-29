@@ -1,6 +1,6 @@
 class RandomizedSet {
-    unordered_map<int, int> m;
-    vector<int> v;
+    unordered_map<int, int> setIndexes;
+    vector<int> set;
     int size = 0;
     
 public:
@@ -9,30 +9,32 @@ public:
     }
     
     bool insert(int val) {
-        if (m.count(val) != 0) return false;
+        if(setIndexes.find(val) != setIndexes.end())
+            return false;
         
-        m[val] = size;
-        v.push_back(val);
+        set.push_back(val);
+        setIndexes[val] = size;
         size++;
         
-        return true;   
+        return true;
     }
     
     bool remove(int val) {
-        if (m.count(val) == 0) return false;
+        if(setIndexes.find(val) == setIndexes.end())
+            return false;
         
-        int idx = m[val];
-        v[idx] = v[size - 1];
-        v.pop_back();
-        m[v[idx]] = idx;
-        m.erase(val);
+        int index = setIndexes[val];
+        set[index] = set[size-1];
+        set.pop_back(); 
+        setIndexes[set[index]] = index;
+        setIndexes.erase(val);
         size--;
         
         return true;
     }
     
     int getRandom() {
-        return v[rand() % size];
+        return set[rand() % size];
     }
 };
 
