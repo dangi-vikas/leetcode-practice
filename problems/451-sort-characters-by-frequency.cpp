@@ -1,17 +1,24 @@
 class Solution {
 public:
     string frequencySort(string s) {
-        vector<pair<int, int>> count('z' + 1, {0, 0});
+        string ans="";
+        unordered_map<char, int> counts;
+        priority_queue<pair<int, char>> pq;
         
-        for(char ch : s)
-            count[ch] = {count[ch].first + 1, ch};
+        for(int i=0; i<s.length(); i++) counts[s[i]]++;
         
-        sort(count.begin(), count.end());
+        for(auto it=counts.begin(); it!=counts.end(); it++) 
+            pq.push({it->second, it->first});
         
-        string ans = "";
-        
-        for(auto p : count)
-            ans = string(p.first, p.second) + ans;
+        while(!pq.empty()) {
+            auto [count, letter] = pq.top();
+            pq.pop();
+            
+            while(count > 0) {
+                ans += letter;
+                count--;
+            }
+        }
         
         return ans;
     }
