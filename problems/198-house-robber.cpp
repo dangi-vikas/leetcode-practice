@@ -2,21 +2,29 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         int n = nums.size();
-        
-        //base cases
+
         if(n==0) return 0;
         if(n==1) return nums[0];
-        
-        int val1 = nums[0], val2 = max(val1, nums[1]);
-        for(int i=2; i<n; i++){
-            int temp = val2;
 
-            //choosing either val 2 or val1
-            val2 = max(val2, val1+nums[i]);
-            
-            val1 = temp;
+        int next = nums[n-1], nextNext = max(next, nums[n-2]);
+
+        for(int i=n-3; i>=0; i--) {
+            int curr = max((nums[i] + next), nextNext);
+            next = nextNext;
+            nextNext = curr;
         }
-        
-        return val2;
+
+        return nextNext;
+    }
+
+    int rob(vector<int>& nums, int index, vector<int>& dp) {
+        if(index > nums.size()-1) return 0;
+
+        if(dp[index] != -1) return dp[index];
+
+        int choose = nums[index] + rob(nums, index+2, dp);
+        int notChoose = rob(nums, index+1, dp);
+
+        return dp[index] = max(choose, notChoose);
     }
 };
