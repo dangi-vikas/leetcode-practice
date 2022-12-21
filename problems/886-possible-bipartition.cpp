@@ -40,5 +40,5 @@ public:
         }
         
         return true;
-    }
+    } 
 };
