@@ -16,4 +16,4 @@ public:
         
         return max(noStock, sold);
     }
-};
+}; 
