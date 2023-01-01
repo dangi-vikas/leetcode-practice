@@ -4,18 +4,18 @@ public:
         if(pattern.size() != (count(s.begin(), s.end(), ' ') + 1))
             return false;
         
-        unordered_map<char, string> check1;
-        unordered_map<string, int> check2;
+        unordered_map<char, string> bijection;
+        unordered_map<string, int> wordCount;
         
         istringstream ss(s);
         string word;
         
-        for(auto i : pattern){
+        for(auto ch : pattern){
             ss >> word;
             
-            if((check1[i] == "" && check2[word] == 0) || check1[i] == word){
-                check1[i] = word;
-                check2[word] = i;
+            if((bijection[ch] == "" && wordCount[word] == 0) || bijection[ch] == word){
+                bijection[ch] = word;
+                wordCount[word] = ch;
             }
             
             else return false;
