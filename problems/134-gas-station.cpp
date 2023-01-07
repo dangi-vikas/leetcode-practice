@@ -22,3 +22,4 @@ public:
         return (totalSurplus<0) ? -1 : startIndex;
     }
 };
+
