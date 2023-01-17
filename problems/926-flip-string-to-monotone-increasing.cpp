@@ -15,5 +15,5 @@ public:
         }
         
         return zeroToOnes;
-    }
+    } 
 };
