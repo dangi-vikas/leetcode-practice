@@ -8,7 +8,7 @@ public:
             sum += nums[i];
             nums[i] = -nums[i];
         }
-        
+         
         int minSum = kadaneAlgorithm(nums);
         
         if(sum + minSum == 0) return maxSum;
