@@ -42,4 +42,4 @@ public:
         //check if the part is in range of [0,25]
         return stoi(str)<=255;
     }
-};
+}; 
