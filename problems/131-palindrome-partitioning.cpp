@@ -3,7 +3,7 @@ public:
     vector<vector<string>> partition(string s) {
         vector<vector<string>> ans;
         vector<string> container;
-
+ 
         partitionRec(s, ans, container, 0);
         return ans;
     }
