@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isAlienSorted(vector<string>& words, string order) {
         int order1, order2;
-         
+          
         for (int i=1; i<words.size(); i++) { 
             for (int j=0; j<words[i-1].size() && j<words[i].size(); j++) { 
                 order1 = order.find(words[i-1][j]); 
