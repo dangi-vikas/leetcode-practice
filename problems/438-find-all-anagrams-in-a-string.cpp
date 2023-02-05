@@ -1,32 +1,31 @@
 class Solution {
 public:
-    vector<int> findAnagrams(string s, string p) {\
+    vector<int> findAnagrams(string s, string p) {
         vector<int> ans;
-        vector<int> sHash(26, 0), pHash(26, 0);
-        int window = p.size(), n = s.size();
-         
-        if(n < window) return ans;
-                   
-        int i=0, j=0;
-        
-        while(j < window){
-            pHash[p[j] - 'a']++;
-            sHash[s[j++] - 'a']++; 
+        int k = p.size(), n = s.size();
+        vector<int> pCount(26, 0), sCount(26, 0);
+        int i = 0, j = 0;
+
+        if(n < k) return ans;
+
+        while(j < k) {
+            pCount[p[j] - 'a']++;
+            sCount[s[j++] - 'a']++;
         }
-        
+
         j--;
         
-        while(j < n){
-            if(pHash == sHash) ans.push_back(i);
-            
+        while(j < n) {
+            if(sCount ==  pCount) ans.push_back(i);        
+
             j++;
-            
-            if(j != n) sHash[s[j] - 'a']++;
-            sHash[s[i] - 'a']--;
-            
+
+            if(j != n) sCount[s[j] - 'a']++;
+            sCount[s[i] - 'a']--;
+
             i++;
         }
-                                                  
+
         return ans;
     }
 };
