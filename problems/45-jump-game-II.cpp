@@ -1,5 +1,5 @@
 //used greedy approach
-
+ 
 class Solution {
 public:
     int jump(vector<int>& nums) {
