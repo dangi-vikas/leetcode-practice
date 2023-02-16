@@ -9,20 +9,19 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        
+
         //edge cases
         if(!root) return 0;
         if(!root->left && !root->right) return 1;
-        
+
         //checking depth of left and right subtrees
-        int lDepth = maxDepth(root->left);
-        int rDepth = maxDepth(root->right);
-        
+        int leftDepth = maxDepth(root->left);
+        int rightDepth = maxDepth(root->right);
+
         //returning the maximum of depths added with the root
-        return 1 + (lDepth>rDepth ? lDepth : rDepth);
+        return 1 + max(leftDepth, rightDepth);
     }
 };
