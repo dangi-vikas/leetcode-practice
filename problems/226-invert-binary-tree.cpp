@@ -15,7 +15,7 @@ public:
         if(!root)  return root;
         
         //getting the left and right subtree
-        TreeNode* left = invertTree(root->left);
+        TreeNode* left = invertTree(root->left); 
         TreeNode* right = invertTree(root->right);
         
         //inverting the tree
