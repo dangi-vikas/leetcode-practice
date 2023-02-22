@@ -7,7 +7,7 @@ public:
             int id = convertTime(time);
             if (arr[id]) return 0; 
             arr[id] = true;
-        }
+        } 
         
         for (int i = 0; i<720; i++) arr[i + 1440] = arr[i]; 
         
