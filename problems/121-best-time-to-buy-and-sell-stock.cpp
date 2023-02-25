@@ -17,7 +17,7 @@ public:
             if (prices[i] < buy) {
                 buy = prices[i];
                 sell = buy;
-            } 
+            }  
 
             else sell = prices[i];
             
