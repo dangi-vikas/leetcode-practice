@@ -7,7 +7,7 @@ public:
         for(int i=0; i<m+1; i++) prev[i] = i;
                                   
         for(int i=1; i<n+1; i++) {
-            curr[0] = i;
+            curr[0] = i; 
             
             for(int j=1; j<m+1; j++){
                 if(word1[i-1] == word2[j-1])
