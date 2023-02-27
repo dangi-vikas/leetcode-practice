@@ -41,31 +41,34 @@ public:
 class Solution {
 public:
     Node* construct(vector<vector<int>>& grid) {
-        return constructRec(grid, 0, grid.size(), 0, grid[0].size());
+        return construct(grid, 0, grid.size(), 0, grid[0].size());
     }
-    
-    Node* constructRec(vector<vector<int>> &grid, int rs, int re, int cs, int ce) {
+
+    Node* construct(vector<vector<int>>& grid, int rs, int re, int cs, int ce) {
         if(rs >= re || cs >= ce) return nullptr;
-        
-        int val = grid[rs][cs];
+
+        int val =  grid[rs][cs];
         int i = 0, j = 0;
-        
-        for(i = rs; i < re; ++i) {
-            for(j = cs; j < ce; ++j) 
+
+        for(i=rs; i<re; i++) {
+            for(j=cs; j<ce; j++) {
                 if(grid[i][j] != val) break;
-            
+            }
+
             if(j < ce) break;
         }
-        
-        if(i == re && j == ce) return new Node(val, true);
-        
-        int rm = rs + (re-rs) / 2, cm = cs + (ce-cs) / 2;
-        
-        Node *topLeft = constructRec(grid, rs, rm, cs, cm);
-        Node *topRight = constructRec(grid, rs, rm, cm, ce);
-        Node *bottomLeft = constructRec(grid, rm, re, cs, cm);
-        Node *bottomRight = constructRec(grid, rm, re, cm, ce);
-        
+
+        if(i == re  && j == ce) return new Node(val, true);
+
+        int rm = rs + ((re - rs) >> 1);
+        int cm = cs + ((ce - cs) >> 1);
+
+        Node* topLeft = construct(grid, rs, rm, cs, cm);
+        Node* topRight = construct(grid, rs, rm, cm, ce);
+        Node* bottomLeft = construct(grid, rm, re, cs, cm);
+        Node* bottomRight = construct(grid, rm, re, cm, ce);
+
         return new Node(val, false, topLeft, topRight, bottomLeft, bottomRight);
+
     }
 };
