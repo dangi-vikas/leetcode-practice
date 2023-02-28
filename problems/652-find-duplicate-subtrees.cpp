@@ -12,22 +12,21 @@
 class Solution {
 public:
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
-        unordered_map<string, int> nodeMap;
+        unordered_map<string, int> subtreeHashMap;
         vector<TreeNode*> ans;
-        
-        findDuplicateSubtreesRec(root, nodeMap, ans);
-        
+
+        findDuplicateSubtrees(root, subtreeHashMap, ans);
+
         return ans;
     }
-    
-    string findDuplicateSubtreesRec(TreeNode* root, unordered_map<string, int>& nodeMap, vector<TreeNode*>& ans) {
+
+    string findDuplicateSubtrees(TreeNode* root, unordered_map<string, int>& subtreeHashMap, vector<TreeNode*>& ans) {
         if(!root) return " ";
-        
-        string s = to_string(root->val) + " " + findDuplicateSubtreesRec(root->left, nodeMap, ans)+ " "+ findDuplicateSubtreesRec(root->right, nodeMap, ans);
-        
-        if(nodeMap[s]++ == 1)
-            ans.push_back(root);
-        
-        return s;
+
+        string subtreeHash = to_string(root->val) + " " + findDuplicateSubtrees(root->left, subtreeHashMap, ans) + " " + findDuplicateSubtrees(root->right, subtreeHashMap, ans);
+
+        if(subtreeHashMap[subtreeHash]++ == 1) ans.push_back(root);
+
+        return subtreeHash;
     }
 };
