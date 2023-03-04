@@ -10,7 +10,7 @@ public:
                     v.push_back(i);
                     v.push_back(j);                             //pushing them in the vector
                 }
-            }
+            } 
         } 
         
         return v;
