@@ -35,4 +35,4 @@ public:
         
         return fast;
     }
-};
+}; 
