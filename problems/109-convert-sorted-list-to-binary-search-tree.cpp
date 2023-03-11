@@ -38,7 +38,7 @@ public:
         
         ListNode* mid = slow->next;
         slow->next = nullptr;
-        
+         
         //constructing tree through divide and conquer
         TreeNode* root = new TreeNode(mid->val);
         root->left = sortedListToBST(head);
