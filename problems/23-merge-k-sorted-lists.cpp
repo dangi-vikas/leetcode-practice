@@ -8,6 +8,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
@@ -24,25 +25,25 @@ public:
         
         return lists[0];
     }
-    
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        ListNode* ans = nullptr;
-        
-        if(!l1 && !l2) return nullptr;
-    
-        if(!l2) return l1;
-        if(!l1) return l2;
-        
-        if(l1->val < l2->val) {
-            ans = l1;
-            ans->next = mergeTwoLists(l1->next, l2);
+
+    ListNode* mergeTwoLists(ListNode* head1, ListNode* head2) {
+        if(!head1 && !head2) return nullptr;
+
+        if(!head1) return head2;
+        if(!head2) return head1;
+
+        ListNode* node = nullptr;
+
+        if(head1->val < head2->val) {
+            node = head1;
+            node->next = mergeTwoLists(head1->next, head2);
         }
-        
+
         else {
-            ans = l2;
-            ans->next = mergeTwoLists(l1, l2->next);
+            node = head2;
+            node->next = mergeTwoLists(head1, head2->next);
         }
-        
-        return ans;
+
+        return node;
     }
 };
