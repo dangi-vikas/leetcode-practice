@@ -9,35 +9,38 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
 class Solution {
+    typedef long long ll;
+
 public:
     int sumNumbers(TreeNode* root) {
         if(!root) return 0;
 
-        long long ans=0;
+        ll ans = 0;
 
-        sumNumbersRec(root, 0, ans);
+        sumNumbers(root, 0, ans);
+
         return ans;
     }
-    
-    void sumNumbersRec(TreeNode* root, long long curr, long long& ans){
+
+    void sumNumbers(TreeNode* root, ll currNum, ll& ans) {
         
         //if the node is null
         if(!root) return;
         
         //adding the value of node in the current sum
-        curr *= 10;
-        curr += root->val;
+        currNum *= 10;
+        currNum += root->val;
+
         
         //if the leaf node is reached than adding the current sum to total sum
-        if(!root->left && !root->right){
-            ans += curr; return;
+        if(!root->left && !root->right) {
+            ans += currNum;
+            return;
         }
 
         //traversing different path of the tree
-        sumNumbersRec(root->left, curr, ans);
-        sumNumbersRec(root->right, curr, ans);
-
+        sumNumbers(root->left, currNum, ans);
+        sumNumbers(root->right, currNum, ans);
     }
 };
