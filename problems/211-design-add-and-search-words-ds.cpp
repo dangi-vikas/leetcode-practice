@@ -4,7 +4,7 @@ class WordDictionary {
         char val;
         int endsHere;
         TrieNode* child[26];
-    };
+    }; 
 
     TrieNode* getNode(char index){
         TrieNode* newNode = new TrieNode;
