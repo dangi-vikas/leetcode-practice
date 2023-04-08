@@ -13,7 +13,7 @@ public:
         neighbors = vector<Node*>();
     }
     Node(int _val, vector<Node*> _neighbors) {
-        val = _val;
+        val = _val; 
         neighbors = _neighbors;
     }
 };
