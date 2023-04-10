@@ -27,7 +27,7 @@ public:
                    (s[i]=='}' && ch=='{')) continue;
                 
                 return false;
-            }
+            } 
         }
         
         //if each bracket find its matching bracket then the stack must be empty
