@@ -1,26 +1,26 @@
 class Solution {
 public:
     string simplifyPath(string path) {
-        vector<string> v;
         istringstream ss(path);
-        string ans, i;
+        string ans, part;
+        vector<string> temp;
         
         //splitting the path string by '/' character
-        while(getline(ss, i, '/')){
+        while(getline(ss, part, '/')){
             
             //the the variable in path is '.' or ''
-            if(i=="" || i==".") continue;
+            if(part=="" || part==".") continue;
 
             //if it is a valid directory
-            if(i != "..") v.emplace_back(i);
+            if(part != "..") temp.emplace_back(part);
 
             //if it is ".." then moving one directory up
-            else if(!v.empty()) v.pop_back();
+            else if(!temp.empty()) temp.pop_back();
         }
         
         //emptying the vector in a string separated by '/'
-        for(auto& j: v) ans += "/" + j;
+        for(string& part: temp) ans += "/" + part;
         
-        return v.empty() ? "/" : ans;
+        return temp.empty() ? "/" : ans;
     }
 };
