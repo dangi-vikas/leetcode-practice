@@ -22,7 +22,7 @@ public:
                 else c--;
             }
 
-            senate.clear();
+            senate.clear(); 
           
             int i = 0;
             while(i != t.size() && c) {
