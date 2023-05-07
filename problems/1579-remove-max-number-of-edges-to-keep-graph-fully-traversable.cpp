@@ -59,7 +59,7 @@ public:
             if(edge[0] == 2) {
                 if(bob.find(edge[1]) != bob.find(edge[2])) {
                     bob.unionByRank(edge[1], edge[2]);
-                    bobEdge++;
+                    bobEdge++; 
                 } 
 
                 else removedEdge++;
