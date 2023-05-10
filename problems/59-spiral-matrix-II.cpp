@@ -1,10 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
-        
-        //if n=0 no matrix will be formed
-        if(n==0) return {};
-        
+
         //initialised matrix of nxn with zero
         vector<vector<int>> ans(n, vector<int> (n, 0));
         
