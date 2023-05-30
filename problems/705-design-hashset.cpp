@@ -1,9 +1,9 @@
 class MyHashSet {
     vector<int> set;
+    
 public:
     MyHashSet() {
-        int s = 1e6 + 1;
-        set.resize(s);
+        set.resize(1e6 + 1);
     }
     
     void add(int key) {
