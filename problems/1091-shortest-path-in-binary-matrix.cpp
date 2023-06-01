@@ -1,51 +1,36 @@
 class Solution {
-    bool isOutOfBounds(vector<vector<int>>& grid, int r, int c) {
-        if(r<0 || r>=grid.size()) return true;
-        if(c<0 || c>=grid[r].size()) return true;    
-        return false;
-    }
-
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-        vector<vector<int>> dirs = {
-            {-1,-1},    {-1,0},     {-1,1},
-            {0,-1},                 {0,1},
-            {1,-1},     {1,0},      {1,1}
-        };
+        int n = grid.size();
+        vector<vector<int>> dist(n, vector<int>(n, -1));
+        queue<pair<int, int>> q;
+        vector<int> dx = {-1, 0, 1, 0, 1, 1, -1, -1};
+        vector<int> dy = {0, 1, 0, -1, 1, -1, 1, -1};
 
-        using pii = pair<int,int>;
-        int ROWS = grid.size();
+        if(!grid[0][0]) {
+            q.push({0, 0});
+            dist[0][0] = 1;
+        }
 
-        if(ROWS == 0) return 0;
-
-        int COLS = grid[0].size();
-        queue<pii> q;
-
-        if(grid[0][0] == 0) q.push({0,0});
-
-        int steps = 0;
+        else return -1;
 
         while(!q.empty()) {
-            int qSize = q.size();
-            steps++;
+            int r = q.front().first;
+            int c = q.front().second;
 
-            for(int i=0; i<qSize; i++) {
-                auto [r, c] = q.front();
-                q.pop();
+            q.pop();
+            
+            for(int d=0; d<8; d++) {
+                int x = r + dx[d];
+                int y = c + dy[d];
 
-                if(r == ROWS - 1 && c == COLS - 1) return steps;
-
-                for(auto& dir : dirs) {
-                    int dr = dir[0] + r;
-                    int dc = dir[1] + c;
-                    if(isOutOfBounds(grid, dr, dc)) continue;
-                    if(grid[dr][dc] == 1) continue;
-                    grid[dr][dc] = 1;
-                    q.push({dr, dc});
+                if(x >= 0 && y >= 0 && x < n && y < n && !grid[x][y] && dist[x][y] == -1) {
+                    dist[x][y] = dist[r][c] + 1;
+                    q.push({x, y});
                 }
             }
         }
 
-        return -1;
+        return (dist[n-1][n-1] != -1) ? dist[n-1][n-1] : -1;
     }
 };
