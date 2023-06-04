@@ -8,7 +8,7 @@ public:
                 if(isConnected[i][j] == 1) {
                     numProvince++;
                     dfs(isConnected, i, j);
-                }
+                } 
             }
         }
         
