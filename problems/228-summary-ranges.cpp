@@ -6,7 +6,7 @@ public:
         
         if(n == 0) return ans;
         
-        int a = nums[0];
+        int a = nums[0]; 
         
         for(int i=0; i<n; i++){
 
