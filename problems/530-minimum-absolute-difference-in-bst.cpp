@@ -23,7 +23,7 @@ public:
     
     void getMinimumDifferenceRec(TreeNode* root){
         if (!root) return;
-        
+         
         getMinimumDifferenceRec(root->left);
         
         if(last) {
