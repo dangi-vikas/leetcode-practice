@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
-        priority_queue<pair<int, pair<int,int>>> pq;
+        priority_queue<pair<int, pair<int, int>>> pq;
         vector<vector<int>> ans;
     
         for(int i=0; i<nums1.size(); i++)
