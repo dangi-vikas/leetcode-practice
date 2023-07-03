@@ -5,7 +5,7 @@ public:
         vector<int> alp(26, 0);
         
         for(auto c : goal) alp[c - 97] = 1;
-      
+       
         for(auto c : s) 
             if (alp[c - 97] == 0) return false;
         
