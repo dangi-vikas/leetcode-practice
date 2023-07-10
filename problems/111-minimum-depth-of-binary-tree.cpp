@@ -10,7 +10,7 @@
  * };
  */
 
-
+ 
 class Solution {
 public:
     int minDepth(TreeNode* root) {
