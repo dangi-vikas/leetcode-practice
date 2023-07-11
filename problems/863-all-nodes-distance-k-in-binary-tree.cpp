@@ -11,60 +11,61 @@
 class Solution {
 public:
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
-        unordered_map<TreeNode*, TreeNode*> parentOf;
-        markParents(root, parentOf);
-        
-        unordered_set<TreeNode *> visited;
-        queue<TreeNode *> q;
+        queue<TreeNode*> q;
+        unordered_set<TreeNode*> visited;
+        int level = 0;
+        vector<int> ans;
+        unordered_map<TreeNode*, TreeNode*> parent;
+
+        markParents(root, parent);
+
         q.push(target);
         visited.insert(target);
-        
-        int lvl = 0;
-        
-        while (q.size()) {
-            int n = q.size();
-            if (k == lvl++) break;
-            
-            for (int i=0; i<n; i++) {
-                TreeNode *node = q.front(); q.pop();
-                
-                if (parentOf.find(node) != parentOf.end() && !visited.count(parentOf[node])) {
-                    visited.insert(parentOf[node]);
-                    q.push(parentOf[node]);
+
+        while(!q.empty()) {
+            int size = q.size();
+            if(level++ == k) break;
+
+            for(int i=0; i<size; i++) {
+                TreeNode* node = q.front();
+                q.pop();
+
+                if(parent.count(node) && !visited.count(parent[node])) {
+                    q.push(parent[node]);
+                    visited.insert(parent[node]);
                 }
-                
-                if (node->left && !visited.count(node->left)) {
-                    visited.insert(node->left);
+
+                if(node->left && !visited.count(node->left)) {
                     q.push(node->left);
+                    visited.insert(node->left);
                 }
-                
-                if (node->right && !visited.count(node->right)) {
-                    visited.insert(node->right);
+
+                if(node->right && !visited.count(node->right)) {
                     q.push(node->right);
+                    visited.insert(node->right);
                 }
             }
         }
-        
-        vector<int> ans;
-        while (q.size()) {
+
+        while(!q.empty()) {
             ans.push_back(q.front()->val);
             q.pop();
         }
+
         return ans;
-        
     }
-    
-    void markParents(TreeNode *root, unordered_map<TreeNode *, TreeNode *> &parentOf) {
-        if (!root) return;
-        
-        if (root->left) {
-            parentOf[root->left] = root;
-            markParents(root->left, parentOf);
+
+    void markParents(TreeNode* root, unordered_map<TreeNode*, TreeNode*>& parent) {
+        if(!root) return;
+
+        if(root->left) {
+            parent[root->left] = root;
+            markParents(root->left, parent);
         }
-        
-        if (root->right) {
-            parentOf[root->right] = root;
-            markParents(root->right, parentOf);
+
+        if(root->right) {
+            parent[root->right] = root;
+            markParents(root->right, parent);
         }
     }
 };
