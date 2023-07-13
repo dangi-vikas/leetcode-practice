@@ -8,7 +8,7 @@ public:
             adj[prerequisites[i][0]].push_back(prerequisites[i][1]);
             
         vector<int> visited(numCourses, 0);
-        
+         
         for(int i=0; i<numCourses; i++)
             
             //if the element is never visited
