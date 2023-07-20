@@ -8,10 +8,12 @@ public:
             
             while(!st.empty() && ast<0 && st.top()>0) {
                 if(-ast > st.top()) st.pop();
+                
                 else if(-ast < st.top()) {
                     isDestroyed = true;
                     break;
                 }
+
                 else {
                     st.pop();
                     isDestroyed = true;
