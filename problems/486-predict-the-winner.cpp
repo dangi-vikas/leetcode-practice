@@ -1,31 +1,18 @@
 class Solution {
-    int dp[21][21];
-    
 public:
     bool PredictTheWinner(vector<int>& nums) {
-        memset(dp, -1, sizeof(dp));
-        
-        int player1 = PredictTheWinnerRec(0, nums.size()-1, nums); 
-        
-        int sum = 0;
-        for(int num : nums) sum += num;
-         
-        int player2 = sum - player1; 
-        
-        if(player1 >= player2) return true;
-        return false;
+        vector<vector<int>> dp(21, vector<int> (21, -1));
+        return predictTheWinner(0, nums.size() - 1, nums, dp) >= 0;
     }
-    
-    int PredictTheWinnerRec(int i,int j,vector<int>& nums){
-        if(i == j) return nums[i]; 
-        if(i > j) return 0;
-        if(dp[i][j] != -1) return dp[i][j];
-        
-        int choice1 = nums[i] + min(PredictTheWinnerRec(i+1, j-1, nums), PredictTheWinnerRec(i+2, j, nums));
-        int choice2 = nums[j] + min(PredictTheWinnerRec(i+1, j-1, nums), PredictTheWinnerRec(i, j-2, nums));
-        
-        dp[i][j] = max(choice1, choice2);
-        
-        return dp[i][j];
+
+    int predictTheWinner(int start, int end, vector<int>& nums, vector<vector<int>>& dp) {
+        if (start == end) return nums[start];
+        if(dp[start][end] != -1) return dp[start][end];
+
+        int pickStart = nums[start] - predictTheWinner(start + 1, end, nums, dp);
+        int pickEnd = nums[end] - predictTheWinner(start, end - 1, nums, dp);
+
+        return dp[start][end] = max(pickStart, pickEnd);
     }
+
 };
