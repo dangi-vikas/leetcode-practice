@@ -3,7 +3,7 @@ public:
     double soupServings(int n) {
         vector<vector<double>> dp(200, vector<double>(200, 0));
         
-        if(n > 4800) return 1.0; 
+        if (n > 4800) return 1.0; 
         
         return soupServingsRec((n + 24) / 25, (n + 24) / 25, dp);
     }
