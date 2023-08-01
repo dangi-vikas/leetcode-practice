@@ -9,8 +9,8 @@ public:
         return ans;
     }
     
-    void combineRec(vector<vector<int>>& ans, vector<int>& container, int index, 
-                    int n, int k){
+    void combineRec(vector<vector<int>>& ans, vector<int>& container, int ind, 
+                    int& n, int& k){
         
         //if the temporary container is of size k
         if(container.size()==k){
@@ -22,7 +22,7 @@ public:
         }
         
         //iterating for different combinations of numbers
-        for(int i=index; i<n+1; i++){
+        for(int i=ind; i<n+1; i++){
 
             //pushing the numbers in the temporary container
             container.emplace_back(i);
