@@ -10,10 +10,10 @@ public:
         return ans;
     }
     
-    void permuteRec(vector<int> nums, int index, vector<vector<int>>& ans){
+    void permuteRec(vector<int> nums, int ind, vector<vector<int>>& ans){
         
-        //base condition: if the index reaches the nums size
-        if(index == nums.size()-1){
+        //base condition: if the ind reaches the nums size
+        if(ind == nums.size()-1){
             
             //pushing the permutation in the ans array
             ans.push_back(nums);
@@ -21,16 +21,16 @@ public:
             return;
         }
         
-        for(int i=index; i<nums.size(); i++){
+        for(int i=ind; i<nums.size(); i++){
             
             //for skipping the repeated number
-            if(i!=index && nums[index]==nums[i]) continue;
+            if(i!=ind && nums[ind]==nums[i]) continue;
 
             //swapping the numbers to get different permutations
-            swap(nums[i], nums[index]);
+            swap(nums[i], nums[ind]);
 
-            //incrementing the index to make permutation with next number
-            permuteRec(nums, index+1, ans);
+            //incrementing the ind to make permutation with next number
+            permuteRec(nums, ind+1, ans);
         }
     }
 };
