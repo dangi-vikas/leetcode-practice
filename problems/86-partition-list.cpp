@@ -23,17 +23,17 @@ public:
         ListNode* q = great;
         
         //traversing through the list
-        while(head){
+        while(head) {
 
             //if the val of node is less than target
-            if(head->val < x){
+            if(head->val < x) {
 
                 //adding the node to the small list
                 p->next = head;
                 p = p->next;
             }
             
-            else{
+            else {
 
                 //else, adding the node to the great list
                 q->next = head;
