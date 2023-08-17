@@ -1,9 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
-        int n = mat.size();
-        int m = mat[0].size();
-        
+        int n = mat.size(),m = mat[0].size();
         vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
         
         for(int row = 0; row < n; row++) {
