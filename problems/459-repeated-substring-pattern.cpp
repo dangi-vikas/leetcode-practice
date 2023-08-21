@@ -7,7 +7,7 @@ public:
         KMP(s, lps);
         
         return lps[n-1] != 0 && n % (n - lps[n-1]) == 0;
-    }
+    } 
     
     void KMP(string &s, vector<int>&lps) {
         lps[0] = 0;
