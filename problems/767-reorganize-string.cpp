@@ -4,7 +4,6 @@ public:
         return p1.second < p2.second;
     } 
 };
-        
 
 class Solution {    
 public:
