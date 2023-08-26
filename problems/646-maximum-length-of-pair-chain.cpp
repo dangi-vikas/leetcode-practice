@@ -12,7 +12,7 @@ public:
         for(int i=1; i<pairs.size(); i++) {
             if(prev < pairs[i][0]) {
                 prev = pairs[i][1];
-                ans++;
+                ans++; 
             }
         }
         
