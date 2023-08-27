@@ -18,11 +18,10 @@ public:
         
         bool val = false;
         
-        if(i == 0) { 
+        if(i == 0) 
             if(um.count(stones[i]+k+1))
                 val = val || dfs(stones, um[stones[i]+k+1], k+1, dp);
-        }
-        
+       
         else {
             if(um.count(stones[i]+k))
                 val = val || dfs(stones, um[stones[i]+k], k, dp);
