@@ -10,8 +10,9 @@ public:
     void push(int x) {
         qTemp.push(x);
         
-        while(!q.empty()){
-            qTemp.push(q.front()); q.pop();
+        while(!q.empty()) {
+            qTemp.push(q.front()); 
+            q.pop();
         }
         
         queue<int> temp = q;
@@ -20,7 +21,9 @@ public:
     }
     
     int pop() {
-        int temp = q.front(); q.pop();
+        int temp = q.front(); 
+        q.pop();
+        
         return temp;
     }
     
