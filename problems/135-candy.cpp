@@ -13,7 +13,8 @@ public:
             
             if((prevSlope<0 && currSlope>=0) || (prevSlope>0 && currSlope==0)) {
                 candies += sum(up) + sum(down) + max(up, down);
-                up = 0; down = 0;
+                up = 0; 
+                down = 0;
             }
             
             if(currSlope > 0) up++;
