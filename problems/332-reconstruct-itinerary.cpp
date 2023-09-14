@@ -4,11 +4,11 @@ public:
         unordered_map<string, multiset<string>> adj;
         vector<string> ans;
         int n = tickets.size();
+        stack<string> st;
         
         for(int i=0; i<n; i++)
             adj[tickets[i][0]].insert(tickets[i][1]);
-        
-        stack<string> st;
+    
         st.push("JFK");
         
         while(!st.empty()) {
