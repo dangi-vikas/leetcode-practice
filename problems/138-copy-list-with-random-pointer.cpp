@@ -21,7 +21,7 @@ public:
 
         /*first round: make copy of each node and link them together 
           side-by-side in a single list*/
-        while (iter) {
+        while(iter) {
             front = iter->next;
 
             Node *newNode = new Node(iter->val);
@@ -34,7 +34,7 @@ public:
         iter = head;
 
         //second round: assign random pointers to the copied nodes.
-        while (iter) {
+        while(iter) {
             if (iter->random)
                 iter->next->random = iter->random->next;
                 
@@ -46,7 +46,7 @@ public:
         Node *newNode = temp;
 
          //third round: restore the original list; and extract the copied list.
-        while (iter) {
+        while(iter) {
             front = iter->next->next;
 
             newNode->next = iter->next;                  // extract the copy

@@ -5,7 +5,7 @@ public:
         ans[0] = 0; 
         
         for(int i=0; i<=n; i++)
-            ans[i] = ans[i/2] + i%2;
+            ans[i] = ans[i/2] + i % 2;
             
         return ans;
     }

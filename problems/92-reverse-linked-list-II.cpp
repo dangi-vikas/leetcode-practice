@@ -22,14 +22,14 @@ public:
         int pos = 1;
 
         //finding the node just before the sublist
-        while(pos<left){
+        while(pos<left) {
             nodeBeforeSublist = nodeBeforeSublist->next;
             pos++;
         }
 
         auto workingPtr = nodeBeforeSublist->next;
 
-        while (left<right){
+        while (left<right) {
 
             auto nodeExtracted = workingPtr->next;
             

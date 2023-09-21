@@ -26,7 +26,7 @@ public:
         ListNode* prev = NULL;
         int i = 0;
         
-        while(node && i<k) {
+        while(node && i < k) {
             ans[i] = node;
             
             for(int j=0; j<partLength+((distribute>0)?1:0); j++) {
