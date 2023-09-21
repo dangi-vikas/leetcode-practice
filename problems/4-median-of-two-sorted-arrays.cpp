@@ -1,7 +1,7 @@
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        double median = 0;
+        double median = 0; 
         
         for(int num2 : nums2) nums1.push_back(num2);
         
