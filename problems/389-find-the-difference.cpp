@@ -6,6 +6,6 @@ public:
         for (int i=0; i<s.length(); i++)
             ans ^= s[i] ^ t[i];
 
-        return ans ^ t[(t.length())-1];
+        return ans ^ t[(t.length()) - 1];
     }
 };
