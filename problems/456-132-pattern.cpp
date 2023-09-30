@@ -5,10 +5,10 @@ public:
         stack<int> st;
         int prev = INT_MIN;
         
-        for(int i=n-1; i>=0; i--){
+        for(int i=n-1; i>=0; i--) {
             if(nums[i] < prev) return true;
             
-            while(st.size() && st.top() < nums[i]){
+            while(st.size() && st.top() < nums[i]) {
                 prev = max(prev, st.top());
                 st.pop();
             }
