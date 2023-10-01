@@ -1,28 +1,26 @@
 class Solution {
 public:
-  string reverseWords(string s) {
-        int sz = s.size();
-        int current_index, till;
-        char c;
-        
-        for (int start_index = 0; start_index < sz;) {
-            current_index = start_index;
-            
-            while (current_index < sz && s[current_index] != ' ') 
-                current_index++;
-            
-            till = (current_index - start_index) / 2;
-            
-            for (int j = 0; j < till; j++) {
-                c = s[start_index + j];
-                s[start_index + j] = s[current_index - 1 - j];
-                s[current_index - 1 - j] = c;
+    string reverseWords(string s) {
+        int i = 0, j = 0, k = 0;
+        int n = s.length();
+
+        while(k < n) {
+            while(s[j] != ' ' && j != n) j++;
+
+            k = j;
+            j--;
+
+            while(i <= j) {
+                swap(s[i], s[j]);
+                i++; 
+                j--;
             }
-            
-            start_index = current_index + 1;
-            
+
+            k++;
+            i = k;
+            j = k;
         }
-        
+
         return s;
     }
 };
