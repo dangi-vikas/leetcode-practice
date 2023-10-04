@@ -12,7 +12,7 @@ public:
         return key % size;
     }
     
-    list<pair<int,int>>:: iterator search(int key){
+    list<pair<int, int>> :: iterator search(int key){
         int i = hash(key);
         list<pair<int, int>> :: iterator it = v[i].begin(); 
         
