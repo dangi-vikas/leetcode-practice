@@ -8,7 +8,7 @@ public:
             a = b;
             b = c;
         }
-        
+         
         return min(a, b);
     }
 };
