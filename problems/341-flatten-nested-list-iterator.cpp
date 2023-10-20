@@ -40,7 +40,7 @@ public:
          while(true){
             if(currIter && currIter->hasNext()) return true;
              
-            else if(!currIter){
+            else if(!currIter) {
                 if(idx >= v.size()) return false;
                 if(v[idx].isInteger()) return true;
                 currIter = new NestedIterator(v[idx++].getList());
