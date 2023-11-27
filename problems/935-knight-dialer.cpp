@@ -5,6 +5,7 @@ public:
     int knightDialer(int n) {
         vector<vector<int>> paths = {{4,6},{6,8},{7,9},{4,8},{3,9,0},{},{1,7,0},{2,6},{1,3},{2,4}};
         vector<vector<long>> dp(n+1, vector<long>(10, 0));
+        long ans = 0;
         
         for(int i=0; i<10; i++) dp[1][i] = 1;
         
@@ -17,8 +18,6 @@ public:
                 dp[i][j] %= mod;
             }
         }
-        
-        long ans = 0;
         
         for(int i=0; i<10; i++) ans += dp[n][i];
         
