@@ -17,7 +17,7 @@ public:
         
         string ans = to_string(root->val);
         
-        if(root->right){
+        if(root->right) { 
             ans += ('(' + tree2str(root->left) + ')');
             ans += ('(' + tree2str(root->right) + ')');
         }
