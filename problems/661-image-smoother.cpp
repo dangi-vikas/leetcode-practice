@@ -14,7 +14,7 @@ public:
                         
                         if (dy>=0 && dy<n && dx>=0 && dx<m) {
                             ans[y][x] += img[dy][dx];
-                            ++count;
+                            count++;
                         }
                     }
                 }
