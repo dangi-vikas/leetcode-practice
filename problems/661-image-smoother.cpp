@@ -22,7 +22,7 @@ public:
                 ans[y][x] /= count;
             }
         }
-        
+         
         return ans;
     }
 };
