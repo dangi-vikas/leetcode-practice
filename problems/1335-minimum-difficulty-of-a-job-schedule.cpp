@@ -12,7 +12,7 @@ public:
     int minDifficultyRec(vector<int>& difficulty, int d, int index, int n, vector<vector<int>>& dp) {
         if(d == 0) {
             if(index >= n) return 0;
-            else return INT_MAX;
+            return INT_MAX;
         }
         
         if(index == n) return INT_MAX;
