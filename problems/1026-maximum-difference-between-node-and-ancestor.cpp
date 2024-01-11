@@ -9,20 +9,19 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
- 
+
 class Solution {
 public:
     int maxAncestorDiff(TreeNode* root) {
-        int minVal = INT_MAX, maxVal = INT_MIN;
-        return maxAncestorDiff(root, minVal, maxVal);
+        return maxAncestorDiff(root, INT_MAX, 0);
     }
-
+    
     int maxAncestorDiff(TreeNode* root, int minVal, int maxVal) {
-        if(!root) return maxVal - minVal;
-
+        if(!root) return (maxVal - minVal);
+        
         minVal = min(minVal, root->val);
         maxVal = max(maxVal, root->val);
-
-        return max(maxAncestorDiff(root->left, minVal, maxVal), maxAncestorDiff(root->right, minVal, maxVal));
+        
+        return  max(maxAncestorDiff(root->left, minVal, maxVal), maxAncestorDiff(root->right, minVal, maxVal));
     }
 };
