@@ -5,7 +5,7 @@ public:
         int count = 0;
         
         for(int i=0; i<n; i++) {
-            if(i < n/2 && isVowel(s[i])) count++; 
+            if(i < n/2 && isVowel(s[i])) count++;
             else if(isVowel(s[i])) count--;
         } 
         
