@@ -22,6 +22,6 @@ public:
         sort(wordArr1.begin(), wordArr1.end());
         sort(wordArr2.begin(), wordArr2.end());
         
-        return wordArr1 == wordArr2;
+        return (wordArr1 == wordArr2);
     }
 };
