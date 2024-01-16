@@ -24,6 +24,7 @@ public:
             return false;
         
         int index = setIndexes[val];
+        
         set[index] = set[size-1];
         set.pop_back(); 
         setIndexes[set[index]] = index;
