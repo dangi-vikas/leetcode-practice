@@ -4,7 +4,7 @@ public:
         unordered_map<int, int> freq;
         unordered_set<int> freqSet;
         
-        for(int x : arr) freq[x]++;
+        for(int a : arr) freq[a]++;
         for(auto f : freq) freqSet.insert(f.second);
         
         return freq.size() == freqSet.size();
