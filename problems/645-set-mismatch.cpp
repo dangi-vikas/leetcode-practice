@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) {
-        vector<int> ans(2);
+        vector<int> ans(2, 0);
         
         for(int i=0; i<nums.size(); i++) {
             int val = abs(nums[i]);
