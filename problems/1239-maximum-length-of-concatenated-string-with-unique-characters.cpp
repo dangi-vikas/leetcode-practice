@@ -3,8 +3,7 @@ class Solution {
     
 public:
     int maxLength(vector<string>& arr) {
-        maxLengthRec(arr, 0, "", arr.size());
-        
+        maxLengthRec(arr, 0, "", arr.size());  
         return ans;
     }
     
