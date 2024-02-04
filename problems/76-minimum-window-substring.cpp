@@ -11,13 +11,12 @@ public:
         for(; end<s.size(); end++) {
             if(freq.find(s[end]) != freq.end()) {
                 freq[s[end]]--;
-                
                 if(freq[s[end]] == 0) count++; 
             }
             
             while(count == freq.size()) {
                 if(end-start+1 <= minCount) {
-                    minCount = end-start+1;
+                    minCount = end - start + 1;
                     winEnd = end;
                     winStart = start;
                 }
