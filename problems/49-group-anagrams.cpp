@@ -20,7 +20,6 @@ public:
         for(auto anagram = anagrams.begin(); anagram != anagrams.end(); anagram++)
             ans.push_back(anagram->second);
         
-        
         return ans;
     }
 };
