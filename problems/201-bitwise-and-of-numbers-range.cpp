@@ -4,13 +4,13 @@ public:
         int count = 0;
 
         //checking the common bits
-        while(left != right){
+        while(left != right) {
             left >>= 1;
             right >>= 1;
             count++;
         }
         
         //returning the bits after adding count zeroes at end
-        return left<<count;
+        return left << count;
     }
 };
