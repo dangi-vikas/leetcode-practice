@@ -1,6 +1,5 @@
 class Solution {
     int minPrice = INT_MAX;
-
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
         vector<vector<int>> dp(n, vector<int>(n));
