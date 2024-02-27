@@ -12,6 +12,7 @@
 
 class Solution {
     int ans = 0;
+
 public:
     int diameterOfBinaryTree(TreeNode* root) {
         if(!root) return 0;
@@ -25,7 +26,7 @@ public:
         int left = diameterOfBinaryTreeRec(root->left) + 1;
         int right = diameterOfBinaryTreeRec(root->right) + 1;
         
-        ans = max(ans, left+right); 
+        ans = max(ans, left + right); 
         
         return max(left, right);    
     }
