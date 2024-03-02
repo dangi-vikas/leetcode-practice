@@ -9,7 +9,7 @@ public:
                 ans[k] = nums[j] * nums[j];
                 j--;
             }
-            
+             
             else {
                 ans[k] = nums[i] * nums[i];
                 i++;
