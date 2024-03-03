@@ -26,7 +26,7 @@ public:
         
         /*moving the fast pointer till it reaches the last node concurrently
           with slow node which would then reach the nth node from end*/
-        while(fast->next){
+        while(fast->next) {
             fast = fast->next;
             slow = slow->next;
         }
