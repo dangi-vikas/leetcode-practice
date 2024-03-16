@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
-        unordered_map<int,int> counts;
+        unordered_map<int, int> counts;
         int ans = 0, prefixSum = 0;
         counts[0] = -1;
         
@@ -10,6 +10,7 @@ public:
             
             if (counts.find(prefixSum) == counts.end()) 
                 counts[prefixSum] = i;
+                
             else ans = max(ans, i - counts[prefixSum]);
         }
         
