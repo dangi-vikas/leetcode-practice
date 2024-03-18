@@ -7,10 +7,9 @@ public:
         int ans = 1;
 
         for(int i=1; i<points.size(); i++) {
-            if(points[i][0] <= end)
+            if(points[i][0] <= end) {
                 end = min(end, points[i][1]);
-            
-            else {
+            } else {
                 ans++;
                 end = points[i][1];
             }
