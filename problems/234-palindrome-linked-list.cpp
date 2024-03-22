@@ -12,18 +12,17 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        string sum="";
+        string sum = "";
         
-        while(head){
-            string s=to_string(head->val);
-            sum+=s;
-            head=head->next;
+        while(head) {
+            string s = to_string(head->val);
+            sum += s;
+            head = head->next;
         }
         
-        string s=sum;
-        reverse(s.begin(),s.end());
+        string s = sum;
+        reverse(s.begin(), s.end());
         
-        if(s==sum) return true;
-        return false;
+        return (s == sum);
     }
 };
