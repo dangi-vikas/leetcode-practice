@@ -16,7 +16,7 @@ public:
             
             if(i >= 0 && i < n) {
                 int iVal = abs(nums[i]);
-                nums[i] = iVal ? 0 - iVal : 0 - (i+1);
+                nums[i] = iVal ? 0 - iVal : 0 - (i + 1);
             }
         }
         
