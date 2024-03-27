@@ -15,7 +15,7 @@ public:
                 start++;
             }
             
-            count += end - start + 1;
+            count += (end - start + 1);
             end++;
         }
         
