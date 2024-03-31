@@ -14,7 +14,9 @@ public:
             else {
                 if(nums[i] == minK) minI = i;
                 if(nums[i] == maxK) maxI = i;
-                if(minI != -1 && maxI != -1) ans += min(minI, maxI) - li;
+
+                if(minI != -1 && maxI != -1) 
+                    ans += min(minI, maxI) - li;
             }
         }
 
