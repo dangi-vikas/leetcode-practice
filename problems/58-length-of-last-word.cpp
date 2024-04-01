@@ -4,7 +4,7 @@ public:
         string r = s;
 
         //Removing trailing spaces (if any)
-        while(*(r.end()-1) == ' ') r.pop_back();
+        while(*(r.end() - 1) == ' ') r.pop_back();
         
         //Reverse of input string        
         reverse(r.begin(), r.end());  
