@@ -10,7 +10,7 @@ public:
         /*Loop's ending condition is i * i < n instead of i < sqrt(n)
           to avoid repeatedly calling an expensive function sqrt()*/
 
-        for (int i = 2; i * i < n; i++){
+        for (int i = 2; i * i < n; i++) {
             if (!isPrime[i]) continue;
 
             //marking all the multiples of prime numbers as false
@@ -19,6 +19,7 @@ public:
         }
 
         int count = 0;
+
         for (int i = 2; i < n; i++)
             if (isPrime[i]) count++;
 
