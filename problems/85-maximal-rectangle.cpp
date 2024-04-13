@@ -7,7 +7,7 @@ public:
         
         for(int i=0; i<n; i++) {
             for(int j=0; j<m; j++) {
-                histogram[j] = (matrix[i][j] == '1') ? histogram[j]+1 : 0;
+                histogram[j] = (matrix[i][j] == '1') ? histogram[j] + 1 : 0;
             }
             
             maxArea = max(maxArea, largestRectangleArea(histogram));
@@ -22,7 +22,7 @@ public:
         int n = heights.size();
         
         for(int i=0; i<=n; i++) {
-            while(!st.empty() && (i==n || heights[st.top()] >= heights[i])) {
+            while(!st.empty() && (i == n || heights[st.top()] >= heights[i])) {
                 int height = heights[st.top()];
                 st.pop();
                 
