@@ -15,7 +15,7 @@ public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
 
         //if both the trees' roots are null
-        if(!p && !q) return true;
+        if(!p && !q) return true; 
  
         //if any one of the roots is null
         if(!p || !q) return false;
