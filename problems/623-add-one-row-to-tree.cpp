@@ -28,7 +28,7 @@ public:
     void insert(TreeNode* root, int depth, int val, int currDepth) {
         if(!root) return;
         
-        if(currDepth == depth-1) {
+        if(currDepth == depth - 1) {
             TreeNode* temp = root->left;
             root->left = new TreeNode(val);
             root->left->left = temp;
