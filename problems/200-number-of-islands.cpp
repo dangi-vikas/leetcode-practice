@@ -11,7 +11,7 @@ public:
             for(int j=0; j<n; ++j)
 
                 //if land is found
-                if(grid[i][j] == '1'){
+                if(grid[i][j] == '1') {
 
                     //initiating dfs
                     dfs(grid, i, j, m, n);
