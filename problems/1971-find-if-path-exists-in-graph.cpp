@@ -17,6 +17,7 @@ public:
             q.pop();
             
             if(curr == destination) return true;
+
             for(auto& node : adjList[curr]) {
                 if(!visited[node]) {
                     q.push(node);
