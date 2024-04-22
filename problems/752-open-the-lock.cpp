@@ -15,6 +15,7 @@ public:
         
         while(!q.empty()) {
             int size = q.size();
+            
             while(size--) {
                 string curr = q.front();
                 q.pop();
