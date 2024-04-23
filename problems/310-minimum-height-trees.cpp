@@ -17,7 +17,7 @@ public:
             if(degree[i] == 1)
                 leaves.push_back(i);
         
-        if(n==1) return {0};
+        if(n == 1) return {0};
         
         vector<int> newLeaves;
         
