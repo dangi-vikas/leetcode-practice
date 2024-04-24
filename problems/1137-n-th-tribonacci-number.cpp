@@ -8,6 +8,7 @@ public:
 
         for(int i=3; i<=n; i++) {
             int temp = a + b + c;
+
             a = b;
             b = c;
             c = temp;
