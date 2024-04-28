@@ -20,7 +20,7 @@ public:
 
         return ans;
     }
-
+ 
     void postOrder(int root, int pre) {
         for(int child : tree[root]) {
             if(child == pre) continue;
