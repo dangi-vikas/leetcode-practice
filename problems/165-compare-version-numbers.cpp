@@ -11,16 +11,16 @@ public:
         
         //comparing the version number at each index
         
-        for(i=0; i<(min(v1.size(), v2.size())); i++){
+        for(i=0; i<(min(v1.size(), v2.size())); i++) {
             if(v1[i] < v2[i]) return -1;
             if(v1[i] > v2[i]) return 1;
         }
         
-        if(v1.size()>v2.size())
+        if(v1.size() > v2.size())
             for(; i<v1.size(); i++)
                 if(v1[i]) return 1;
         
-        if(v1.size()<v2.size())
+        if(v1.size() < v2.size())
             for(; i<v2.size(); i++)
                 if(v2[i]) return -1;
         
