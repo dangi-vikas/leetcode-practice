@@ -11,9 +11,7 @@ public:
                 i++;
                 j--;
                 ans++;
-            }
-
-            else {
+            } else {
                 j--;
                 ans++;
             }
