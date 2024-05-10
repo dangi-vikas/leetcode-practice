@@ -2,7 +2,7 @@ class Solution {
     class comparator {
     public:
         bool operator()(pair<int, int>& a, pair<int, int>& b){
-            return a.first * b.second < a.second * b.first;
+            return (a.first * b.second < a.second * b.first);
         }
     };
     
