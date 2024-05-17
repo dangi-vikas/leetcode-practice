@@ -1,6 +1,6 @@
 class Solution {
 public:
-
+ 
     int longestStrChain(vector<string>& words) {
         sort(words.begin(), words.end(), [](const string& a, const string& b) {
             return a.length() < b.length();
