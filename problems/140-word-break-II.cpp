@@ -54,9 +54,11 @@ public:
         for(string word : wordDict) 
             insertNode(word);
         
-        for(int i=0; i<s.size(); i++)
-            if(searchNode(s.substr(0, i+1)))
+        for(int i=0; i<s.size(); i++) {
+            if(searchNode(s.substr(0, i+1))) {
                 wordBreakRec(s, s.substr(0, i+1), i+1);
+            }
+        }
         
         return ans;
     }
@@ -69,8 +71,10 @@ public:
         
         st += " ";
         
-        for(int i=pos; i<s.size(); i++) 
-            if(searchNode(s.substr(pos, i+1-pos)))
+        for(int i=pos; i<s.size(); i++) {
+            if(searchNode(s.substr(pos, i+1-pos))) {
                 wordBreakRec(s, st + s.substr(pos, i+1-pos), i+1);
+            }
+        }
     } 
 };
