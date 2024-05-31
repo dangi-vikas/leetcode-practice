@@ -7,12 +7,13 @@ public:
             XOR ^= x;
         
         int mask = 1;
-        for(int i=0; i<32; i++){
+        
+        for(int i=0; i<32; i++) {
             if(XOR & mask) break;
             mask <<= 1;
         }
         
-        for(int x : nums){
+        for(int x : nums) { 
             if(x & mask) a ^= x;
             else b ^= x;
         }
