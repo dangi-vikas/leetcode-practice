@@ -1,7 +1,8 @@
 class Solution {
 public:
     bool isNStraightHand(vector<int>& hand, int groupSize) {
-        if(hand.size() % groupSize != 0) return false;
+        if(hand.size() % groupSize != 0) 
+            return false;
         
         int groupCount = 0;
         map<int, int> cardCount;
@@ -11,6 +12,7 @@ public:
         for(auto it=cardCount.begin(); it!=cardCount.end(); it++) {
             while(it->second) {
                 int curr = it->first;
+                
                 for(int card=curr; card<curr+groupSize; card++) {
                     if(cardCount.find(card) == cardCount.end() || cardCount[card] == 0) 
                         return false;
@@ -20,7 +22,8 @@ public:
                 
                 groupCount++;
                 
-                if(groupCount == (int) hand.size() / groupSize) return true;
+                if(groupCount == (int) hand.size() / groupSize) 
+                    return true;
             }
         }
         
