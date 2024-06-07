@@ -1,5 +1,5 @@
 class Solution {
-    struct TrieNode{
+    struct TrieNode {
         vector<TrieNode*> children{26, nullptr};
         bool ends = false;
         string word;
@@ -9,11 +9,11 @@ class Solution {
     public:
         TrieNode* head = NULL;
 
-        Trie(){
+        Trie() {
             head = new TrieNode();
         }
 
-        void insert(string s){
+        void insert(string s) {
             TrieNode* ptr = head;
 
             for(auto it : s) {
@@ -27,10 +27,10 @@ class Solution {
             ptr->word = s;
         }
 
-        string search(string s){
+        string search(string s) {
             TrieNode* ptr = head;
 
-            for(auto it : s){
+            for(auto it : s) {
                 if(!ptr) break;
                 if(ptr->ends) return ptr->word;
 
@@ -50,8 +50,8 @@ public:
         string ans = "";
         string word = "";
         
-        for(auto it : sentence){
-            if(it == ' '){
+        for(auto it : sentence) {
+            if(it == ' ') {
                 string successor = T->search(word);
                 ans += successor;
                 ans += " ";
