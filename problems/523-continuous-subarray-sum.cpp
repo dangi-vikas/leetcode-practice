@@ -6,9 +6,10 @@ public:
         
         for(int  i=0; i<nums.size(); i++) {
             remainder += nums[i];
-            if(k) remainder %= k;
             
-            if(remMap.find(remainder) != remMap.end()){
+            if(k) emainder %= k;
+            
+            if(remMap.find(remainder) != remMap.end()) {
                 if(i - remMap[remainder] > 1) return true;
             }
             
