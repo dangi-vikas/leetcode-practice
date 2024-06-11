@@ -4,7 +4,8 @@ public:
         map<int, int> arr;
         vector<int> ans;
         
-        for(int i=0; i<arr1.size(); i++) arr[arr1[i]]++;
+        for(int i=0; i<arr1.size(); i++) 
+            arr[arr1[i]]++;
         
         for(int i=0; i<arr2.size(); i++) {
             int temp = arr[arr2[i]];
