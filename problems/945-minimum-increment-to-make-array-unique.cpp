@@ -12,7 +12,7 @@ public:
             }
             
             mn = nums[i] + 1;
-        }
+        } 
         
         return ans;
     }
