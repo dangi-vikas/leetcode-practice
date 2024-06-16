@@ -9,7 +9,7 @@ public:
                 reach += nums[i]; 
                 i++;
             }
-            
+             
             else {
                 reach += reach + 1;
                 count ++;
