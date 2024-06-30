@@ -24,11 +24,11 @@ public:
         int pu = find(u);
         int pv = find(v);
         
-        if(rank[pu] > rank[pv]) parent[pv] = pu; 
-
-        else if(rank[pu] < rank[pv]) parent[pu] = pv;
-
-        else {
+        if(rank[pu] > rank[pv]) {
+            parent[pv] = pu; 
+        } else if(rank[pu] < rank[pv]) {
+            parent[pu] = pv;
+        } else {
             parent[pu] = pv;
             rank[pv]++;
         }       
@@ -49,9 +49,7 @@ public:
                     bob.unionByRank(edge[1], edge[2]);
                     aliceEdge++;
                     bobEdge++;
-                } 
-                
-                else removedEdge++;
+                } else removedEdge++;
             }
         }
             
@@ -60,18 +58,12 @@ public:
                 if(bob.find(edge[1]) != bob.find(edge[2])) {
                     bob.unionByRank(edge[1], edge[2]);
                     bobEdge++; 
-                } 
-
-                else removedEdge++;
-            } 
-            
-            else if(edge[0] == 1) {
+                } else removedEdge++;
+            }  else if(edge[0] == 1) {
                 if(alice.find(edge[1]) != alice.find(edge[2])) {
                     alice.unionByRank(edge[1], edge[2]);
                     aliceEdge++;
-                } 
-                 
-                else removedEdge++;
+                } else removedEdge++;
             }
         }  
         
