@@ -6,11 +6,12 @@ public:
         
         for(auto i : nums1) count[i]++;
         
-        for(auto i : nums2)
-            if(count[i]){
+        for(auto i : nums2) {
+            if(count[i]) {
                 ans.push_back(i); 
                 count[i]--;
             }
+        }
         
         return ans;
     }
