@@ -7,7 +7,7 @@ public:
 
         for(int i=0; i<len && n>0; i++) {
             if(flowerbed[i] == 1) i++;
-
+ 
             else {
                 int next = (i == len-1) ? 0 : flowerbed[i+1];
                 
