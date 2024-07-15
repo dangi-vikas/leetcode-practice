@@ -16,7 +16,7 @@ public:
         ListNode* temp = node;          
         int carry = 0; 
         
-        while(l1 || l2 || carry){                           //runs till all of l1, l2 and carry is equal to null
+        while(l1 || l2 || carry) {                           //runs till all of l1, l2 and carry is equal to null
             int sum = 0;
             
             if(l1){
