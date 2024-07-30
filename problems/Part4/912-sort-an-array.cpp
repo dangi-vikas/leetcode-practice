@@ -4,7 +4,7 @@ public:
         quickSort(nums, 0, nums.size()-1);
         return nums;
     }
-    
+     
     void quickSort(vector<int>& nums, int low, int high) {
         if(high > low) {
             int pivotIdx = findPivot(nums, low, high);
