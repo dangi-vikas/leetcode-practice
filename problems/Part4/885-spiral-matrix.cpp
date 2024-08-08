@@ -4,7 +4,7 @@ public:
         vector<vector<int>> ans ;
         ans.push_back({rStart, cStart}); 
         int len = 1;
-        
+         
         while(ans.size() < (rows * cols)) {            
             for(int j=1; j<=len; j++)       
                 if(isValid(rStart, cStart+j, rows, cols)) 
