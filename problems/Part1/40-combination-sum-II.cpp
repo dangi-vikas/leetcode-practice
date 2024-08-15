@@ -13,16 +13,16 @@ public:
     
     //helper function to check combination recursively
     void combinationSum2Rec(int index, int target, vector<int>& candidates, 
-                           vector<vector<int>>& ans, vector<int>& container){
+                           vector<vector<int>>& ans, vector<int>& container) {
         
         //if the target is reached
-        if(target == 0){
+        if(target == 0) {
             ans.push_back(container);
             return;
         }
         
         //iterating for all the numbers in the array 
-        for(int i=index; i<candidates.size(); i++){
+        for(int i=index; i<candidates.size(); i++) {
             
             //ignoring the repeatition of the numbers
             if(i>index && candidates[i]==candidates[i-1]) continue;
