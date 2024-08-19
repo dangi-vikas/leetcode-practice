@@ -7,9 +7,7 @@ public:
             if(n % i == 0) {
                 ans += i;
                 n /= i;
-            }
-                
-            else i++;
+            } else i++;
         }
         
         if(n != 1) ans += n;
