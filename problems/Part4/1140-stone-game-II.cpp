@@ -14,7 +14,7 @@ public:
 
         long long maxStones = INT_MIN;
         long long sum = 0;
-
+ 
         for(int x=0; x<2*m; x++) {
             if(ind + x < n) sum += piles[ind+x];
             maxStones = max(maxStones, (sum - stoneGame(piles, n, ind+x+1, max(m, x+1), dp)));
