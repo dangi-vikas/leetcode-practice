@@ -17,7 +17,7 @@ public:
             if (s[i] != s[right] && j == -1) j = i;
 
             if (j != -1)
-                dp[left][right] = min(dp[left][right], 1 + strangePrinter(s, j, i,                                       dp) + strangePrinter(s, i+1, right, dp));
+                dp[left][right] = min(dp[left][right], 1 + strangePrinter(s, j, i, dp) + strangePrinter(s, i+1, right, dp));
         }
 
         if (j == -1) dp[left][right] = 0;
