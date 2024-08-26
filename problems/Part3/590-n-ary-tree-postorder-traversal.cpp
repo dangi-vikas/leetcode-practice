@@ -25,8 +25,9 @@ public:
         
         vector<int> ans; 
         
-        for(int i = 0; i<root->children.size(); i++){
+        for(int i = 0; i<root->children.size(); i++) {
             vector<int> temp = postorder(root->children[i]);
+            
             for(int j=0; j<temp.size(); j++) 
                 ans.push_back(temp[j]);
         }
