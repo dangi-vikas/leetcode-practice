@@ -8,6 +8,7 @@ public:
         fillFraction(expression);
 
         int i = 0;
+
         while(++i != 11) if(fraction[i] != 0) break;
         if(i == 11) return "0/1";
 
