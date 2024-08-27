@@ -1,5 +1,5 @@
 class Solution {
-    double mod = 1e-5;
+    double mod = 1e - 5;
 
 public:
     double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
