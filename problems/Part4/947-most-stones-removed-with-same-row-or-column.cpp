@@ -45,7 +45,7 @@ public:
             int col = stone[1] + 1;
             
             uf._union(row, col);
-        }
+        } 
         
         return stones.size() - uf.groups;
     }
