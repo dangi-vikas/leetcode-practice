@@ -31,8 +31,10 @@ public:
             int node = nbr.first;
             double prob = nbr.second;
             
-            if(!visited[node] && currProb * prob >= maxProb)
+            if(!visited[node] && currProb * prob >= maxProb) {
                 dfs(adjList, node, end, maxProb, currProb * prob, visited);
+            }
+                
         }
         
         visited[start] = false;
