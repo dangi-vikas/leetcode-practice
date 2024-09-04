@@ -11,7 +11,7 @@ public:
         for(int i=0; i<commands.size(); i++) {
             int c = commands[i];
             
-            if(c == -1){
+            if(c == -1) {
                 pair<int, int> dir1;
                 
                 if(dir.first != 0)
