@@ -11,7 +11,7 @@ public:
     }
     
     void dfs(int i, int n, vector<int>& ans){
-        if(i>n) return;
+        if(i > n) return;
         
         ans.push_back(i);
         
