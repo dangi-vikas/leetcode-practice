@@ -24,7 +24,7 @@ public:
         if (k-- == 1) return; 
         int i;
         
-        for (i = start;; ++i) {
+        for (i = start; ++i) {
             int v = base + min(finalLen, rest);
             if (v >= k) break;
             rest = max(0, rest-finalLen);
